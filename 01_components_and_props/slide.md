@@ -5,7 +5,6 @@ presentation:
   controls: false
 ---
 
-<!-- slide -->
 
 <h2> 🚗 React Roadmap
 
@@ -17,11 +16,11 @@ The goals for Phase 2: </h2>
 
 - Add side effects and data fetching to communicate with a server (Network Communication)
 
-<!-- slide -->
+---
 
 <h1> Components and Props </h1>
 
-<!-- slide -->
+---
 
 <h2> ✅ Objectives </h2>
 
@@ -33,7 +32,7 @@ The goals for Phase 2: </h2>
 ✳️ Recognize best practices when writing components and props
 ✳️ Render multiple components from a list
 
-<!-- slide -->
+---
 
 <h2> 💡 React Philosophy </h2>
 
@@ -43,7 +42,7 @@ The goals for Phase 2: </h2>
 - Use components to break down complex UI into smaller pieces which creates a better separation of concerns
 - Easier to maintain
 
-<!-- slide -->
+---
 
 <h2> React > Vanilla JS </h2>
 
@@ -66,7 +65,7 @@ const h1 = (
 );
 ```
 
-<!-- slide -->
+---
 
 <h2> ⚙️ Components </h2>
 
@@ -91,7 +90,7 @@ const Header = () => {
 ReactDOM.render(<Header />, document.getElementById("root"));
 ```
 
-<!-- slide -->
+---
 
 <h2> ⚙️ Component Gotchas </h2>
 
@@ -122,7 +121,7 @@ function card() {
 - Component name needs to be capitalized
 - Components can only return one element
 
-<!-- slide -->
+---
 
 <h2> 🎩 Props! </h2>
 
@@ -148,7 +147,7 @@ return (
 );
 ```
 
-<!-- slide -->
+---
 
 <h2> 🎩 Props Continued </h2>
 
@@ -169,7 +168,7 @@ function Card(props) {
 }
 ```
 
-<!-- slide -->
+---
 
 <h2> Wireframes </h2>
 
