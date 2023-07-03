@@ -105,13 +105,15 @@
         <section >
             
             <h2> ✅ Objectives </h2>
-<p>✳️ Discuss the benefits of React over Vanilla JS
-✳️ Explain the importance of Components
-✳️ Practice writing components
-✳️ Define props and how to create them
-✳️ Recognize destructured props and how to work with them
-✳️ Recognize best practices when writing components and props
-✳️ Render multiple components from a list</p>
+<ul>
+<li>Discuss the benefits of React over Vanilla JS</li>
+<li>Explain the importance of Components</li>
+<li>Practice writing components</li>
+<li>Define props and how to create them</li>
+<li>Recognize destructured props and how to work with them</li>
+<li>Recognize best practices when writing components and props</li>
+<li>Render multiple components from a list</li>
+</ul>
 
             </section>
     
@@ -159,8 +161,8 @@ h1.textContent = &quot;Hello!&quot;;
 
 
     
+    <section>
         <section >
-            
             <h2> ⚙️ Components </h2>
 <p>
 <p>Components are the building blocks of React. A component is a function that:</p>
@@ -169,7 +171,10 @@ h1.textContent = &quot;Hello!&quot;;
 <li>Returns user interface (JSX)</li>
 </ul>
 </p>
-<pre><code class="language-js">const Header = () =&gt; {
+<pre><code class="language-js">const rootElement = document.getElementById(&quot;root&quot;);
+const root = createRoot(rootElement);
+
+const Header = () =&gt; {
   return (
     &lt;div&gt;
       &lt;h3&gt;Hello World&lt;/h3&gt;
@@ -177,17 +182,29 @@ h1.textContent = &quot;Hello!&quot;;
   );
 };
 
-ReactDOM.render(&lt;Header /&gt;, document.getElementById(&quot;root&quot;));
+root.render(&lt;Header /&gt;);
 </code></pre>
 
             </section>
+        
+            <section >
+                <iframe src="https://codesandbox.io/embed/romantic-wilbur-3lzpzh?fontsize=14&hidenavigation=1&theme=dark"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="romantic-wilbur-3lzpzh"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
+            </section>
+        
+
+    </section>
     
 
 
 
     
+    <section>
         <section >
-            
             <h2> ⚙️ Component Gotchas </h2>
 <p>This is okay:</p>
 <pre><code class="language-js">function Card() {
@@ -207,19 +224,26 @@ ReactDOM.render(&lt;Header /&gt;, document.getElementById(&quot;root&quot;));
   )
 }
 </code></pre>
-<ul>
+
+            </section>
+        
+            <section >
+                <ul>
 <li>Component name needs to be capitalized</li>
 <li>Components can only return one element</li>
 </ul>
 
             </section>
+        
+
+    </section>
     
 
 
 
     
+    <section>
         <section >
-            
             <h2> 🎩 Props! </h2>
 <p>When you create components, one way to make them dynamic and reusable is by passing in props. For example, if we wanted to create several cards on our page using a Card component, we could do so like this:</p>
 <pre><code class="language-js">function Card(props) {
@@ -242,6 +266,18 @@ return (
 </code></pre>
 
             </section>
+        
+            <section >
+                  <iframe src="https://codesandbox.io/embed/romantic-wilbur-3lzpzh?fontsize=14&hidenavigation=1&theme=dark"
+       style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+       title="romantic-wilbur-3lzpzh"
+       allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+       sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+     ></iframe>
+            </section>
+        
+
+    </section>
     
 
 
@@ -273,7 +309,44 @@ return (
         <section >
             
             <h2> Wireframes </h2>
-<img src="https://res.cloudinary.com/dnocv6uwb/image/upload/v1643721399/wireframe_bfc35e.png">
+<div style="display: flex;">
+  <div style="width: 40%">
+    <img src="https://res.cloudinary.com/dnocv6uwb/image/upload/v1643721399/wireframe_bfc35e.png">
+  </div>
+  <div style="font-size: 1.95rem; margin-top: 0.85rem; width: 60%">
+    What components could we use to build this app?
+  <textarea style="font-size: 2rem; border: 2px solid black; padding: 1rem; width: 90%; background: #333; color: #eee" rows="10" cols="35"></textarea>    
+  </div>
+</div>
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2>Let’s Dive into the code!</h2>
+<ul>
+<li>package.json</li>
+<li>node_modules</li>
+<li>public</li>
+<li>src/index.js</li>
+<li>src/App.js</li>
+</ul>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3>Sneak Peak at where we’re going</h3>
+<p>Feel free to check out the application we’ll be building together over the next couple of weeks</p>
+<p><a href="https://phase-2-react-project-showcase.netlify.app/" target="_blank">Project Showcase App</a></p>
+
             </section>
     
 

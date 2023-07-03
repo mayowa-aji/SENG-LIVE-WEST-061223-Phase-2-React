@@ -3,6 +3,7 @@ presentation:
   width: 1500
   height: 1000
   controls: false
+verticalSeparator: 'xxx'
 ---
 
 
@@ -24,13 +25,13 @@ The goals for Phase 2: </h2>
 
 <h2> ✅ Objectives </h2>
 
-✳️ Discuss the benefits of React over Vanilla JS
-✳️ Explain the importance of Components
-✳️ Practice writing components
-✳️ Define props and how to create them
-✳️ Recognize destructured props and how to work with them
-✳️ Recognize best practices when writing components and props
-✳️ Render multiple components from a list
+- Discuss the benefits of React over Vanilla JS
+- Explain the importance of Components
+- Practice writing components
+- Define props and how to create them
+- Recognize destructured props and how to work with them
+- Recognize best practices when writing components and props
+- Render multiple components from a list
 
 ---
 
@@ -79,6 +80,9 @@ Components are the building blocks of React. A component is a function that:
 </p>
 
 ```js
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
+
 const Header = () => {
   return (
     <div>
@@ -87,8 +91,16 @@ const Header = () => {
   );
 };
 
-ReactDOM.render(<Header />, document.getElementById("root"));
+root.render(<Header />);
 ```
+xxx
+
+<iframe src="https://codesandbox.io/embed/romantic-wilbur-3lzpzh?fontsize=14&hidenavigation=1&theme=dark"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="romantic-wilbur-3lzpzh"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
 
 ---
 
@@ -118,8 +130,13 @@ function card() {
 }
 ```
 
+xxx
+  
 - Component name needs to be capitalized
 - Components can only return one element
+  
+
+
 
 ---
 
@@ -146,6 +163,15 @@ return (
   </div>
 );
 ```
+xxx
+
+  <iframe src="https://codesandbox.io/embed/romantic-wilbur-3lzpzh?fontsize=14&hidenavigation=1&theme=dark"
+       style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+       title="romantic-wilbur-3lzpzh"
+       allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+       sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+     ></iframe>
+
 
 ---
 
@@ -172,4 +198,34 @@ function Card(props) {
 
 <h2> Wireframes </h2>
 
-<img src="https://res.cloudinary.com/dnocv6uwb/image/upload/v1643721399/wireframe_bfc35e.png">
+<div style="display: flex;">
+  <div style="width: 40%">
+    <img src="https://res.cloudinary.com/dnocv6uwb/image/upload/v1643721399/wireframe_bfc35e.png">
+  </div>
+
+  <div style="font-size: 1.95rem; margin-top: 0.85rem; width: 60%">
+    What components could we use to build this app?
+
+  <textarea style="font-size: 2rem; border: 2px solid black; padding: 1rem; width: 90%; background: #333; color: #eee" rows="10" cols="35"></textarea>    
+  </div>
+</div>
+
+
+---
+
+
+## Let's Dive into the code!
+
+- package.json
+- node_modules
+- public
+- src/index.js
+- src/App.js
+
+---
+
+### Sneak Peak at where we're going
+
+Feel free to check out the application we'll be building together over the next couple of weeks
+
+<a href="https://phase-2-react-project-showcase.netlify.app/" target="_blank">Project Showcase App</a>
