@@ -4,6 +4,7 @@ transition: "slide"
 highlightTheme: "monokai"
 slideNumber: false
 title: "P2L2 - React State and Events slides"
+verticalSeparator: 'xxx'
 ---
 
 <!-- slide -->
@@ -128,6 +129,7 @@ function Counter() {
   );
 };
 ```
+xxx
 
 This is helpful in the case where we need to introduce additional event handling logic. We can do so without cluttering our JSX.
 
