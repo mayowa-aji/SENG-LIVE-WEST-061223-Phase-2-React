@@ -59,9 +59,9 @@ From [Step 4 of Thinking in React](https://reactwithhooks.netlify.app/docs/think
 
 💡 Question 1: Do you see a problem with storing `isDarkMode` in state within the `Header` component?
 
-💡 Question 2: How about storing `projects` in state within the `ProjectList` component?
+💡 Question 2: How about storing `projects` in state within the `ProjectList` component? {.fragment}
 
-💡 Question 3: How about storing `searchQuery` in state within the `ProjectList` component?
+💡 Question 3: How about storing `searchQuery` in state within the `ProjectList` component? {.fragment}
 
 </div>
 </div>
@@ -112,6 +112,15 @@ From [Step 4 of Thinking in React](https://reactwithhooks.netlify.app/docs/think
 #### Diagram 
 
 <center><img src="https://res.cloudinary.com/dnocv6uwb/image/upload/v1645814361/react-inverse-data-flow-diagram_zpunjn.png" alt="Information flow diagram" style="height: 78vh"></center>
+
+---
+
+<iframe src="https://codesandbox.io/embed/inverse-data-flow-diagram-mtvrs6?fontsize=14&hidenavigation=1&theme=dark&view=preview"
+  style="width:100%; height:650px; border:0; border-radius: 4px; overflow:hidden;"
+  title="inverse-data-flow-diagram"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
 
 ---
 
