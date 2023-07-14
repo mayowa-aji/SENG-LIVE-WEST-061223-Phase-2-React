@@ -176,18 +176,30 @@ return (
 Every component nested inside of the `Switch` component will be individually wrapped inside of a `Route` component. {.fragment}
 
 💥 Route will be provided a `path` prop. {.fragment}
+
 if the current URL matches the path, the Route will render its children. Otherwise, the Route renders null. {.fragment}
 
   </div>
+
   <div style="width: 65%; font-size: 0.75em" class="fragment">
 
 ```js
-return (
-  <div className={isDarkMode ? "App" : "App light"}>
-    <Header 
-      isDarkMode={isDarkMode} 
-      onToggleDarkMode={onToggleDarkMode} 
-    />
+    // src/App.js
+    <Switch>
+      <Route exact path="/">
+        <Home />
+      </Route>
+      <Route path="/about">
+        <About />
+      </Route>
+      <Route path="/projects">
+        <ProjectsContainer />
+      </Route>
+    </Switch>
+```
+ 
+```js
+    // src/components/ProjectsContainer.js
     <Switch>
       <Route exact path="/">
         <Home />
@@ -205,11 +217,8 @@ return (
         <ProjectList projects={projects} onDeleteProject={onDeleteProject} />
       </Route>
     </Switch>
-  </div>
-);
 ```
 
-  </div>
 </div>
 
 
