@@ -51,7 +51,7 @@
 
    <!-- css list -->
 	
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
   
 
    
@@ -275,16 +275,24 @@ ReactDOM.render(
 <p class="fragment">💡 <code>Route</code> wraps content that should be visible when the designated route is active.</p>
 <p class="fragment">❓ Where does it belong?</p>
 <p class="fragment">Every component nested inside of the <code>Switch</code> component will be individually wrapped inside of a <code>Route</code> component.</p>
-<p class="fragment">💥 Route will be provided a <code>path</code> prop. {.fragment}
-if the current URL matches the path, the Route will render its children. Otherwise, the Route renders null.</p>
+<p class="fragment">💥 Route will be provided a <code>path</code> prop.</p>
+<p class="fragment">if the current URL matches the path, the Route will render its children. Otherwise, the Route renders null.</p>
   </div>
   <div style="width: 65%; font-size: 0.75em" class="fragment">
-<pre><code class="language-js">return (
-  &lt;div className={isDarkMode ? &quot;App&quot; : &quot;App light&quot;}&gt;
-    &lt;Header 
-      isDarkMode={isDarkMode} 
-      onToggleDarkMode={onToggleDarkMode} 
-    /&gt;
+<pre><code class="language-js">    // src/App.js
+    &lt;Switch&gt;
+      &lt;Route exact path=&quot;/&quot;&gt;
+        &lt;Home /&gt;
+      &lt;/Route&gt;
+      &lt;Route path=&quot;/about&quot;&gt;
+        &lt;About /&gt;
+      &lt;/Route&gt;
+      &lt;Route path=&quot;/projects&quot;&gt;
+        &lt;ProjectsContainer /&gt;
+      &lt;/Route&gt;
+    &lt;/Switch&gt;
+</code></pre>
+<pre><code class="language-js">    // src/components/ProjectsContainer.js
     &lt;Switch&gt;
       &lt;Route exact path=&quot;/&quot;&gt;
         &lt;Home /&gt;
@@ -302,10 +310,7 @@ if the current URL matches the path, the Route will render its children. Otherwi
         &lt;ProjectList projects={projects} onDeleteProject={onDeleteProject} /&gt;
       &lt;/Route&gt;
     &lt;/Switch&gt;
-  &lt;/div&gt;
-);
 </code></pre>
-  </div>
 </div>
             </section>
     
