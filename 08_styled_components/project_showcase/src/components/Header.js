@@ -1,31 +1,63 @@
-import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import React from 'react';
+import { NavLink, Link } from 'react-router-dom';
+import styled from "styled-components";
+import { Button, buttonBase, HorizontalButtonContainer } from './shared';
 
-const Header = ({ isDarkMode, onToggleDarkMode }) => {
-  const buttonTextContent = isDarkMode ? "Light Mode" : "Dark Mode";
+
+function Header({
+  isDarkMode,
+  onToggleDarkMode
+}) {
+  
+  function handleClick() {
+    onToggleDarkMode()
+  }
 
   return (
-    <header className="navigation">
+    <Nav>
       <h1 className="branding">
         <Link to="/">
-          <span className="logo">{"//"}</span>
+          <Logo>{"//"}</Logo>
           Project Showcase
         </Link>
       </h1>
-      <nav>
-        <NavLink className="button" exact to="/projects">
+      <HorizontalButtonContainer>
+        <NavButton exact to="/projects">
           All Projects
-        </NavLink>
-        <NavLink className="button" to="/projects/new">
+        </NavButton>
+        <NavButton exact to="/projects/new">
           Add Project
-        </NavLink>
-        <NavLink className="button" to="/about">
-          About
-        </NavLink>
-        <button onClick={onToggleDarkMode}>{buttonTextContent}</button>
-      </nav>
-    </header>
+        </NavButton>
+        <Button onClick={handleClick}>{isDarkMode ? 'Dark' : 'Light'} Mode</Button>
+      </HorizontalButtonContainer>
+    </Nav>
   );
-};
+}
 
 export default Header;
+
+const NavButton = styled(NavLink)`
+  ${buttonBase}
+`
+
+const Nav = styled.nav`
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+
+  & h1 a {
+    border-bottom: none;
+  }
+  & h1 a:hover {
+    border-bottom: none;
+    background-color: transparent;
+  }
+`
+
+const Logo = styled.span`
+  color: var(--turquoise);
+  font-size: 1.25em;
+  font-family: Helvetica;
+  margin-right: 0.5rem;
+`

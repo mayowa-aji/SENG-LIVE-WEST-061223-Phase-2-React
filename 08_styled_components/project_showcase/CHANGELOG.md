@@ -39,6 +39,7 @@ function Home() {
 }
 
 export default Home;
+
 ```
 
 Add some css for the box:
@@ -54,8 +55,7 @@ Add a selector to the styles being applied to buttons currently so that we can a
 
 ```css
 /* buttons */
-.button,
-button {
+.button, button {
   padding: 0.5rem 0.75rem;
   border: none;
   font: inherit;
@@ -121,7 +121,6 @@ header h1 a:hover {
   margin-bottom: 2rem;
 }
 ```
-
 ## Add a ProjectDetail component
 
 ```js
@@ -149,7 +148,7 @@ function ProjectDetail() {
   const { image, name, about, link, phase } = project;
 
   function handleClapClick() {
-    setClaps((claps) => claps + 1);
+    setClaps(claps => claps + 1);
   }
 
   return (
@@ -190,14 +189,15 @@ In the App.js file, I've imported the `ProjectDetail` and `Home` components and 
 ```jsx
 return (
   <div className={isDarkMode ? "App" : "App light"}>
-    <Header isDarkMode={isDarkMode} onToggleDarkMode={onToggleDarkMode} />
+    <Header
+      isDarkMode={isDarkMode}
+      onToggleDarkMode={onToggleDarkMode}
+    />
     <Home />
     {renderForm()}
-    <button onClick={() => fetchProjects()}>
-      <BiRefresh />
-    </button>
-    <ProjectList
-      projects={projects}
+    <button onClick={() => fetchProjects()}><BiRefresh /></button>
+    <ProjectList 
+      projects={projects} 
       enterProjectEditModeFor={enterProjectEditModeFor}
       onDeleteProject={onDeleteProject}
       onUpdateProject={onUpdateProject}
@@ -225,9 +225,7 @@ return (
         <a className="button" href="/projects/new">
           Add Project
         </a>
-        <button onClick={handleClick}>
-          {isDarkMode ? "Dark" : "Light"} Mode
-        </button>
+        <button onClick={handleClick}>{isDarkMode ? 'Dark' : 'Light'} Mode</button>
       </div>
     </nav>
   </header>

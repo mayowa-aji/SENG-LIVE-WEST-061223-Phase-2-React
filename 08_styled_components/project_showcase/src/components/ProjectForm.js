@@ -1,100 +1,96 @@
-import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useEffect, useRef } from "react";
+import { useForm } from "../hooks/useForm";
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
+import { Button, Form, Input } from './shared';
 
-const initialState = {
-  name: "",
-  about: "",
-  phase: "",
-  link: "",
-  image: "",
-};
+function ProjectForm({ onCreateProject }) {
+  const nameInputRef = useRef(null);
+  const initialFormState = {
+    name: "",
+    about: "",
+    phase: "",
+    link: "",
+    image: ""
+  }
+  const { formState, handleChange } = useForm(initialFormState);
+  useDocumentTitle("New Project")
 
-const ProjectForm = ({ onAddProject }) => {
-  const [formData, setFormData] = useState(initialState);
-  const history = useHistory();
+  useEffect(() => {
+    nameInputRef.current.focus();
+  },[])
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((formData) => ({ ...formData, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const configObj = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ ...formData, claps: 0 }),
-    };
-
-    fetch("http://localhost:4000/projects", configObj)
-      .then((resp) => resp.json())
-      .then((project) => {
-        onAddProject(project);
-        history.push("/projects")
-      });
-  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const body = JSON.stringify({ ...formState, claps: 0 })
+    onCreateProject(body)
+  }
 
   return (
     <section>
-      <form className="form" autoComplete="off" onSubmit={handleSubmit}>
+      <Form
+        className="form"
+        autoComplete="off"
+        onSubmit={handleSubmit}
+      >
         <h3>Add New Project</h3>
 
         <label htmlFor="name">Name</label>
-        <input
+        <Input
           type="text"
           id="name"
           name="name"
+          ref={nameInputRef}
           onChange={handleChange}
-          value={formData.name}
+          value={formState.name}
         />
 
         <label htmlFor="about">About</label>
-        <textarea
+        <Input
+          as="textarea"
           id="about"
           name="about"
           onChange={handleChange}
-          value={formData.about}
+          value={formState.about}
         />
 
         <label htmlFor="phase">Phase</label>
-        <select
+        <Input
+          as="select"
           name="phase"
           id="phase"
           onChange={handleChange}
-          value={formData.phase}
+          value={formState.phase}
         >
-          <option value="">Pick a Phase</option>
+          <option value="">Select a Phase</option>
           <option value="1">Phase 1</option>
           <option value="2">Phase 2</option>
           <option value="3">Phase 3</option>
           <option value="4">Phase 4</option>
           <option value="5">Phase 5</option>
-        </select>
+        </Input>
 
         <label htmlFor="link">Project Homepage</label>
-        <input
+        <Input
           type="text"
           id="link"
           name="link"
           onChange={handleChange}
-          value={formData.link}
+          value={formState.link}
         />
 
         <label htmlFor="image">Screenshot</label>
-        <input
-          type="text"
-          id="image"
+        <Input 
+          type="text" 
+          id="image" 
           name="image"
           onChange={handleChange}
-          value={formData.image}
+          value={formState.image}
         />
 
-        <button type="submit">Add Project</button>
-      </form>
+        <Button type="submit">Add Project</Button>
+      </Form>
     </section>
   );
-};
+}
 
 export default ProjectForm;

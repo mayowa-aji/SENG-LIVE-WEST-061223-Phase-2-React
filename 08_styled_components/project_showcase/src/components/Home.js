@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
+import { Box } from './shared';
 
-const Home = () => {
+function Home() {
   const [recentProjects, setRecentProjects] = useState([]);
+  useDocumentTitle("Project Showcase - Home")
 
   useEffect(() => {
     // fetch the 3 most recently added projects from json-server
@@ -14,7 +16,7 @@ const Home = () => {
   }, []);
 
   return (
-    <section className="box">
+    <Box border p="1.75rem" mx="1.5rem">
       <h2 style={{ fontSize: "3rem" }}>View Awesome Projects.</h2>
       <p>
         Looking for someone to hire? Check out these awesome projects from
@@ -25,12 +27,12 @@ const Home = () => {
         <p key={project.id}>{project.name}</p>
       ))}
       <div style={{ margin: "1rem 0" }}>
-        <Link className="button" to="/projects">
+        <a className="button" href="/projects">
           View All Projects
-        </Link>
+        </a>
       </div>
-    </section>
+    </Box>
   );
-};
+}
 
 export default Home;

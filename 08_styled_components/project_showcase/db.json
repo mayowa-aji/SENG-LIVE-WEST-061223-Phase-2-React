@@ -11,7 +11,7 @@
     },
     {
       "id": 2,
-      "name": "Book Her #3",
+      "name": "Book Her",
       "about": "The app takes you (the Casting Director) through a series of questions to determine the Models you need for your next Project.",
       "phase": 4,
       "link": "https://bookher.netlify.app/new_project",
@@ -20,12 +20,12 @@
     },
     {
       "id": 3,
-      "name": "Code Bucket",
+      "name": "Code Bucket #3",
       "about": "Web-based CSS, JS and HTML Editor",
       "phase": 4,
       "link": "https://code-bucket.netlify.app",
       "image": "https://i.imgur.com/Hz84TA2.png",
-      "claps": 7
+      "claps": 8
     },
     {
       "id": 11,
@@ -88,7 +88,7 @@
       "phase": 4,
       "link": "https://www.locksleyr.com",
       "image": "https://i.imgur.com/XOnaclL.png",
-      "claps": 0
+      "claps": 1
     },
     {
       "id": 25,

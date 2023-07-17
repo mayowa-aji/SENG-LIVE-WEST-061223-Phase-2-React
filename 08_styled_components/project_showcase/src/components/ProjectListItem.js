@@ -1,42 +1,67 @@
-import { useState } from "react";
-import { FaPencilAlt, FaTrash } from "react-icons/fa";
+import React from "react";
+import { FaPencilAlt, FaTrash } from 'react-icons/fa';
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { Button, buttonBase, Card } from './shared';
 
-const ProjectListItem = ({
-  project,
-  onProjectEdit,
-  onProjectDelete,
-}) => {
-  const { id, image, about, name, link, phase } = project;
+const EditLink = styled(Link)`
+${buttonBase}
+`
 
-  const [clapCount, setClapCount] = useState(0);
+const ProjectImage = styled.figure`
+  max-height: 200px;
+  overflow: hidden;
+  position: relative;
+  & img {
+    width: 100%;
+    height: 175px;
+    object-fit: cover;
+  }
+`
 
-  const handleClap = (clapCount) => setClapCount(clapCount + 1);
+const ClapButton = styled(Button)`
+  color: transparent;
+  text-shadow: 0 0 0 var(--turquoise);
+  position: absolute;
+  top: 10px;
+  right: 10px;
 
-  const handleEditClick = () => {
-    onProjectEdit(project);
-  };
+  &:hover, &:focus {
+    color: transparent;
+    text-shadow: 0 0 0 var(--color);
+  }
+`
 
-  const handleDeleteClick = () => {
-    onProjectDelete(id)
-    fetch(`http://localhost:4000/projects/${id}`, {
-      method: "DELETE"
-    })
-  };
+function ProjectListItem({
+  id,
+  name,
+  about,
+  phase,
+  link,
+  image,
+  claps,
+  onDeleteProject,
+  onUpdateProject
+}) {
+ 
+  function handleClapClick() {
+    onUpdateProject(id, JSON.stringify({claps: claps + 1}))
+  }
 
+  function handleDeleteClick() {
+    console.log('delete me!')
+    
+    onDeleteProject(id);
+  }
   return (
-    <li className="card">
-      <Link to={`/projects/${id}`}>
-        <figure className="image">
-          <img src={image} alt={name} />
-          <button onClick={handleClap} className="claps">
-            👏{clapCount}
-          </button>
-        </figure>
-      </Link>
+    <Card>
+      <ProjectImage>
+        <img src={image} alt={name} />
+        <ClapButton onClick={handleClapClick} className="claps">👏{claps}</ClapButton>
+      </ProjectImage>
 
       <section className="details">
-        <h4>{name}</h4>
+        <h4><Link to={`/projects/${id}`}>{name}</Link></h4>
         <p>{about}</p>
         {link ? (
           <p>
@@ -48,16 +73,23 @@ const ProjectListItem = ({
       <footer className="extra">
         <span className="badge blue">Phase {phase}</span>
         <div className="manage">
-          <Link className="button" to={`/projects/${id}/edit`}>
+          <EditLink
+            className="button"
+            to={`/projects/${id}/edit`}
+          >
             <FaPencilAlt />
-          </Link>
-          <button onClick={handleDeleteClick}>
+          </EditLink>
+          <Button
+            onClick={handleDeleteClick}
+          >
             <FaTrash />
-          </button>
+          </Button>
         </div>
       </footer>
-    </li>
+    </Card>
   );
-};
+}
 
 export default ProjectListItem;
+
+
