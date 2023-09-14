@@ -1,11 +1,21 @@
-const ProjectListItem = ({ project }) => {
-  const { image, name, about, link, phase } = project;
-  
+// set up state/setter function
+// Add event handler to clap button
+// create a helper function
+
+import { useState } from "react";
+const ProjectListItem = ({ image, name, about, link, phase }) => {
+  const [clapCount, setClapCount] = useState(0)
+
+  function handleClick(){
+    setClapCount(prevCount => prevCount + 1)
+  }
+
+
   return (
     <li className="card">
       <figure className="image">
         <img src={image} alt={name} />
-        <button className="claps">👏{0}</button>
+        <button onClick ={handleClick} className="claps">👏{clapCount}</button>
       </figure>
 
       <section className="details">

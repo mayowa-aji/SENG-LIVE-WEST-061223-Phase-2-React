@@ -1,6 +1,11 @@
-import React from "react";
 
-const Header = () => {
+// Set up state/setter function - create a state then when we click on the button it changes
+// set up our helper function when we click on/off
+// set up event listener
+
+const Header = ({ isDarkMode, handleClick }) => {
+
+
   return (
     <header>
       <h1>
@@ -8,7 +13,7 @@ const Header = () => {
         Project Showcase
       </h1>
       <nav>
-        <button>Light Mode</button>
+        <button onClick={handleClick}>{isDarkMode ? "Light Mode": "Dark Mode"}</button>
       </nav>
     </header>
   );
