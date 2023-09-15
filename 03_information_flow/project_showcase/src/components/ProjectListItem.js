@@ -1,12 +1,6 @@
 import { useState } from "react";
 
-const ProjectListItem = ({
-  image,
-  name,
-  about,
-  link,
-  phase
-}) => {
+const ProjectListItem = ({ image, name, about, link, phase}) => {
 
   const [clapCount, setClapCount] = useState(0);
 
