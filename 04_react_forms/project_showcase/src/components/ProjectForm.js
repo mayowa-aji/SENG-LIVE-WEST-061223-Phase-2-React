@@ -1,19 +1,76 @@
-import React from "react";
+import React, { useState} from "react";
 
-const ProjectForm = () => {
+
+const ProjectForm = ({handleAddProject}) => {
+  const initialFormValues = {
+      name:"",
+      about:"",
+      phase:"",
+      link:"",
+      image:""
+  }
+
+
+  const [formData, setFormData] = useState(initialFormValues)
+
+  const handleInput = (e) => {
+    const {name, value} = e.target
+    setFormData({...formData, [name]: value} )
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+
+    const configObj = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accepts": "application/json"
+      },
+      body: JSON.stringify(formData)
+    }
+
+    fetch("http://localhost:4000/projects", configObj)
+    .then(res => res.json())
+    .then(newProject => {
+      handleAddProject(newProject)
+    })
+
+
+    setFormData(initialFormValues)
+
+  }
+
   return (
     <section>
-      <form className="form" autoComplete="off">
+      <form className="form" autoComplete="off" onSubmit={handleSubmit}>
         <h3>Add New Project</h3>
 
-        <label htmlFor="name">Name</label>
-        <input type="text" id="name" name="name" />
+        <label
+          htmlFor="name"></label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          onChange={handleInput}
+          value={formData.name}
+          />
 
-        <label htmlFor="about">About</label>
-        <textarea id="about" name="about" />
+        <label
+          htmlFor="about"About></label>
+        <textarea
+          id="about"
+          name="about"
+          onChange={handleInput}
+          value={formData.about} />
 
         <label htmlFor="phase">Phase</label>
-        <select name="phase" id="phase">
+        <select
+          name="phase"
+          id="phase"
+          onChange={handleInput}
+          value={formData.phase}>
           <option>Select One</option>
           <option value="1">Phase 1</option>
           <option value="2">Phase 2</option>
@@ -23,10 +80,20 @@ const ProjectForm = () => {
         </select>
 
         <label htmlFor="link">Project Homepage</label>
-        <input type="text" id="link" name="link" />
+        <input
+          type="text"
+          id="link"
+          name="link"
+          onChange={handleInput}
+          value={formData.link}/>
 
         <label htmlFor="image">Screenshot</label>
-        <input type="text" id="image" name="image" />
+        <input
+          type="text"
+          id="image"
+          name="image"
+          onChange={handleInput}
+          value={formData.image} />
 
         <button type="submit">Add Project</button>
       </form>
